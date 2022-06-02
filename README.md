@@ -49,9 +49,9 @@ $ git clone https://github.com/pyn9x/music.library-symfony-db.git
 Создаем пустую базу данных и пользователя для нее
 ```
 $ mysql -u root -p
-> CREATE DATABASE music_labrary;
-> CREATE USER 'music_labrary'@'localhost' IDENTIFIED BY 'PASSWORD';
-> GRANT ALL PRIVILEGES ON *.* TO 'music_labrary'@'localhost' WITH GRANT OPTION;
+> CREATE DATABASE music_library;
+> CREATE USER 'music_library'@'localhost' IDENTIFIED BY 'pass';
+> GRANT ALL PRIVILEGES ON *.* TO 'music_library'@'localhost' WITH GRANT OPTION;
 > FLUSH PRIVILEGES;
 > quit;
 ```
