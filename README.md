@@ -50,6 +50,8 @@ $ git clone https://github.com/pyn9x/music.library-symfony-db.git
 ```
 $ mysql -u root -p
 > CREATE DATABASE music_labrary CHARACTER SET utf8 COLLATE utf8_general_ci;
-> GRANT ALL PRIVILEGES ON music_labrary.* TO music_labrary@localhost IDENTIFIED BY 'password';
+> CREATE USER 'music_labrary'@'%' IDENTIFIED BY 'PASSWORD';
+> GRANT ALL PRIVILEGES ON *.* TO 'music_labrary'@localhost'%' WITH GRANT OPTION;
+> FLUSH PRIVILEGES;
 > quit;
 ```
