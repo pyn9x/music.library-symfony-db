@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Genre;
 use App\Entity\Group;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -34,6 +35,7 @@ class AdminDashboardController extends AbstractDashboardController
 			MenuItem::linkToRoute('Home', 'fas fa-home', 'index'),
 			MenuItem::linkToCrud('User', 'fas fa-map-marker-alt', User::class),
 			MenuItem::linkToCrud('Group', 'fas fa-map-marker-alt', Group::class),
+			MenuItem::linkToCrud('Genre', 'fas fa-map-marker-alt', Genre::class),
 		];
     }
 }

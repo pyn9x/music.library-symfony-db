@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <img class="card-img-left rounded float-left" style="height: 250px; width: 250px; display: block; margin-left: auto; margin-right: auto" src="/uploads/cover/{{ group.cover }}" alt="{{ group.cover }}">
+    <div class="card" style="height: 10rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ group.name }}</h5>
+            <p class="card-text">{{ group.info }}</p>
+        </div>
+    </div>
+{% endblock %}

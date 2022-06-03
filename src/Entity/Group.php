@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GroupRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -24,6 +26,15 @@ class Group
 	#[ORM\Column(type: 'string', length: 512)]
     private $info;
 
+	#[ORM\ManyToMany(targetEntity: Genre::class, inversedBy: "Group")]
+	private $genre;
+
+	public function __construct()
+	{
+		$this->genre = new ArrayCollection();
+	}
+
+
 	#[ORM\Column(nullable: true)]
 	protected ?string $cover;
 
@@ -31,6 +42,22 @@ class Group
     {
         return $this->id;
     }
+
+	/**
+	 * @return mixed
+	 */
+	public function getGenre():Collection
+	{
+		return $this->genre;
+	}
+
+	/**
+	 * @param mixed $genre
+	 */
+	public function setGenre($genre): void
+	{
+		$this->genre = $genre;
+	}
 
     public function getName(): ?string
     {

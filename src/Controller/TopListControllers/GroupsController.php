@@ -15,8 +15,18 @@ class GroupsController extends AbstractController
     {
 		$groups = $doctrine->getRepository(Group::class)->findAll();
 
-        return $this->render('top_list/groups.html.twig', [
+        return $this->render('top_list/groups/groups_all.html.twig', [
             'groups' => $groups,
         ]);
     }
+
+	#[Route('/groups/details/{id}', name: 'groups_details', methods: ['GET'])]
+	public function showDetailsGroup(ManagerRegistry $doctrine, int $id): Response
+	{
+		$group = $doctrine->getRepository(Group::class)->find($id);
+
+		return $this->render('top_list/groups/group_details.html.twig', [
+			'group' => $group,
+		]);
+	}
 }

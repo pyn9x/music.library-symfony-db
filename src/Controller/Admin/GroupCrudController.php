@@ -23,6 +23,7 @@ class GroupCrudController extends AbstractCrudController
 		yield IdField::new('id')->hideOnDetail()->hideOnForm();
 		yield TextField::new('name');
 		yield TextField::new('info');
+		yield ArrayField::new('genre');
 		yield ImageField::new('cover')
 						->setBasePath('uploads/cover')
 						->setUploadDir('public/uploads/cover')
