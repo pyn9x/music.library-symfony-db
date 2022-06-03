@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
-
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+        {% for group in groups %}
+            <div class="card" style="width: 18rem;">
+                <img src="uploads/cover/{{ group.cover }}" alt="Card image cap">
+                <div class="card-body">
+                    <a href="" class="card-title">{{ group.name }}</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
