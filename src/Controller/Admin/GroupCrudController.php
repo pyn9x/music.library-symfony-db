@@ -3,13 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Group;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;;
 
 class GroupCrudController extends AbstractCrudController
 {
@@ -23,7 +22,7 @@ class GroupCrudController extends AbstractCrudController
 		yield IdField::new('id')->hideOnDetail()->hideOnForm();
 		yield TextField::new('name');
 		yield TextField::new('info');
-		yield ArrayField::new('genre');
+		yield AssociationField::new('genre' );
 		yield ImageField::new('cover')
 						->setBasePath('uploads/cover')
 						->setUploadDir('public/uploads/cover')

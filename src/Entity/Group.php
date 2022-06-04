@@ -34,6 +34,22 @@ class Group
 		$this->genre = new ArrayCollection();
 	}
 
+	public function addGenre(Genre $genre):self
+	{
+		if(!$this->genre->contains($genre))
+		{
+			$this->genre[] = $genre;
+		}
+
+		return $this;
+	}
+
+	public function removeGenre(Genre $genre):self
+	{
+		$this->genre->removeElement(($genre));
+
+		return $this;
+	}
 
 	#[ORM\Column(nullable: true)]
 	protected ?string $cover;

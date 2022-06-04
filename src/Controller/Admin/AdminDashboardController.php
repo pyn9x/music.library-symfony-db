@@ -33,7 +33,7 @@ class AdminDashboardController extends AbstractDashboardController
     {
 		return [
 			MenuItem::linkToRoute('Home', 'fas fa-home', 'index'),
-			MenuItem::linkToCrud('User', 'fas fa-map-marker-alt', User::class),
+			//MenuItem::linkToCrud('User', 'fas fa-map-marker-alt', User::class),
 			MenuItem::linkToCrud('Group', 'fas fa-map-marker-alt', Group::class),
 			MenuItem::linkToCrud('Genre', 'fas fa-map-marker-alt', Genre::class),
 		];

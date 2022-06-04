@@ -26,6 +26,27 @@ class Genre
 		$this->group = new ArrayCollection();
 	}
 
+	public function addGroup(Group $group):self
+	{
+		if(!$this->group->contains($group))
+		{
+			$this->group[] = $group;
+			$group->addGenre($this);
+		}
+
+		return $this;
+	}
+
+	public function removeGroup(Group $group):self
+	{
+		if($this->group->removeElement($group))
+		{
+			$group->removeGenre($this);
+		}
+
+		return $this;
+	}
+
     public function getId(): ?int
     {
         return $this->id;
