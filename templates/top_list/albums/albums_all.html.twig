@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0" style="display: flex; flex-wrap: wrap;">
+        {% for album in albums %}
+            <div class="card" style="width: 18rem;">
+                <img style="height: 250px; width: 250px; display: block; margin-left: auto; margin-right: auto" src="uploads/cover/{{ album.cover }}" alt="Card image cap">
+                <div class="card-body">
+                    <a href="{{ path('albums_details', {id: album.id}) }}" class="card-title">{{ album.name }}</a> <br>
+                    <b>Жанры: </b>
+                    {% for genre in album.genre %}
+                        {{ genre.name }}
+                    {% endfor %}
+                    <div class="card-text text-truncate"><b>Дата создания:</b> {{ album.releasedate|date('d-m-Y') }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -2,8 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Album;
 use App\Entity\Genre;
 use App\Entity\Group;
+use App\Entity\Song;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -20,7 +22,7 @@ class AdminDashboardController extends AbstractDashboardController
     {
 		$adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
 
-		return $this->redirect($adminUrlGenerator->setController(UserCrudController::class)->generateUrl());
+		return $this->redirect($adminUrlGenerator->setController(GroupCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -35,6 +37,8 @@ class AdminDashboardController extends AbstractDashboardController
 			MenuItem::linkToRoute('Home', 'fas fa-home', 'index'),
 			//MenuItem::linkToCrud('User', 'fas fa-map-marker-alt', User::class),
 			MenuItem::linkToCrud('Group', 'fas fa-map-marker-alt', Group::class),
+			MenuItem::linkToCrud('Album', 'fas fa-map-marker-alt', Album::class),
+			MenuItem::linkToCrud('Song', 'fas fa-map-marker-alt', Song::class),
 			MenuItem::linkToCrud('Genre', 'fas fa-map-marker-alt', Genre::class),
 		];
     }

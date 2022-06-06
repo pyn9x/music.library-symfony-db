@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+    <img class="card-img-left rounded float-left" style="height: 200px; width: 250px; display: block; margin-left: auto; margin-right: auto" src="/uploads/cover/{{ album.cover }}" alt="{{ album.cover }}">
+    <div class="card" style="height: 200px;">
+        <div class="card-body">
+            <h5 class="card-title"><b>{{ album.name }}</b></h5>
+            {{ album.info }} <br>
+            <b>Жанры: </b>
+            {% for genre in album.genre %}
+                {{ genre.name }}
+            {% endfor %}
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Название</th>
+                <th scope="col">Длительность</th>
+            </tr>
+            </thead>
+            {% for song in album.songs %}
+            <tbody>
+            <tr>
+                <th scope="row">{{ song.id }}</th>
+                <td>{{ song.name }}</td>
+                <td>{{ song.duration}}</td>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

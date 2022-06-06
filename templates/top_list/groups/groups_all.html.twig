@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0">
+    <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0" style="display: flex; flex-wrap: wrap;">
         {% for group in groups %}
             <div class="card" style="width: 18rem;">
                 <img style="height: 250px; width: 250px; display: block; margin-left: auto; margin-right: auto" src="uploads/cover/{{ group.cover }}" alt="Card image cap">
-                <div class="card-body" >
-                    <a href="{{ path('groups_details', {id: group.id}) }}" class="card-title">{{ group.name }}</a>
-                    <p class="card-text text-truncate">{{ group.info }}</p>
+                <div class="card-body">
+                    <a href="{{ path('groups_details', {id: group.id}) }}" class="card-title">{{ group.name }}</a> <br>
+                    <b>Жанры: </b>
+                    {% for genre in group.genre %}
+                        {{ genre.name }}
+                    {% endfor %}
+                    <div class="card-text text-truncate"><b>Дата создания:</b> {{ group.dateOfCreation|date('d-m-Y') }}</div>
                 </div>
             </div>
         {% endfor %}
