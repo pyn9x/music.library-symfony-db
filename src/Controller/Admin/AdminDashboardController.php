@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Album;
+use App\Entity\Country;
 use App\Entity\Genre;
 use App\Entity\Group;
 use App\Entity\Song;
@@ -40,6 +41,7 @@ class AdminDashboardController extends AbstractDashboardController
 			MenuItem::linkToCrud('Album', 'fas fa-map-marker-alt', Album::class),
 			MenuItem::linkToCrud('Song', 'fas fa-map-marker-alt', Song::class),
 			MenuItem::linkToCrud('Genre', 'fas fa-map-marker-alt', Genre::class),
+			MenuItem::linkToCrud('Country', 'fas fa-map-marker-alt', Country::class),
 		];
     }
 }

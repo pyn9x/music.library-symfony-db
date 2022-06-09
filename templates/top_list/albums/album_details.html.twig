@@ -7,6 +7,8 @@
         <div class="card-body">
             {#            <h5 class="card-title"><b>{{ album.group }}</b></h5> #}
             <h5 class="card-title"><b>{{ album.name }}</b></h5>
+            <div class="card-title"><b>Дата выхода: {{ album.releaseDate| date('F j, Y')}}</b></div>
+            <div class="card-title"><b>{{ album.info}}</b></div>
             <br>
             <b>Жанры: </b>
             {% for genre in album.genre %}

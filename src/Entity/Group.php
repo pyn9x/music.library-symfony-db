@@ -32,6 +32,9 @@ class Group
 	#[ORM\ManyToMany(targetEntity: Album::class, inversedBy: "group")]
    	private $album;
 
+	#[ORM\ManyToOne(targetEntity: Country::class, inversedBy: "group")]
+   	private $country;
+
 	public function __construct()
    	{
    		$this->album = new ArrayCollection();
@@ -165,20 +168,33 @@ class Group
    		return $this->name;
    	}
 
-    /**
-     * @return Collection<int, Album>
-     */
-    public function getAlbum(): Collection
-    {
-        return $this->album;
-    }
+	/**
+	 * @return Collection<int, Album>
+	 */
+	public function getAlbum(): Collection
+   	{
+   		return $this->album;
+   	}
 
 	/**
 	 * @param mixed $album
 	 */
 	public function setAlbum($album): void
-	{
-		$this->album = $album;
-	}
+   	{
+   		$this->album = $album;
+   	}
+
+
+	public function getCountry()
+   	{
+   		return $this->country;
+   	}
+
+    public function setCountry(?Album $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
 
 }

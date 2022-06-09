@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class GroupCrudController extends AbstractCrudController
@@ -22,11 +23,10 @@ class GroupCrudController extends AbstractCrudController
 		yield IdField::new('id')->hideOnDetail()->hideOnForm();
 		yield TextField::new('name');
 		yield TextField::new('info');
-		yield AssociationField::new('genre' );
-		yield AssociationField::new('album' );
-		yield ImageField::new('cover')
-						->setBasePath('uploads/cover')
-						->setUploadDir('public/uploads/cover')
+		yield AssociationField::new('genre');
+		yield AssociationField::new('album');
+		yield AssociationField::new('country');
+		yield ImageField::new('cover')->setBasePath('uploads/cover')->setUploadDir('public/uploads/cover')
 						->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
 
 		yield DateField::new('date_of_creation');
