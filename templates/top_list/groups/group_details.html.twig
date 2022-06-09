@@ -7,6 +7,10 @@
             <div class="card-body">
                 <h5 class="card-title"><b>{{ group.name }}</b></h5>
                 <p class="card-text">{{ group.info }}</p>
+                <b>Состав:</b>
+                {% for performer in group.performer %}
+                    <a href="{{ path('performer_details', {id: performer.id}) }}" class="card-title" > {{ performer.name }}, {{ performer.surname }}</a>;
+                {% endfor %} <br>
                 <b>Жанры: </b>
                 {% for genre in group.genre %}
                     {{ genre.name }}

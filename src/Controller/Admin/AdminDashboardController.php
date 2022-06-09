@@ -6,8 +6,10 @@ use App\Entity\Album;
 use App\Entity\Country;
 use App\Entity\Genre;
 use App\Entity\Group;
+use App\Entity\Performer;
+use App\Entity\Role;
 use App\Entity\Song;
-use App\Entity\User;
+
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -42,6 +44,8 @@ class AdminDashboardController extends AbstractDashboardController
 			MenuItem::linkToCrud('Song', 'fas fa-map-marker-alt', Song::class),
 			MenuItem::linkToCrud('Genre', 'fas fa-map-marker-alt', Genre::class),
 			MenuItem::linkToCrud('Country', 'fas fa-map-marker-alt', Country::class),
+			MenuItem::linkToCrud('Performer', 'fas fa-map-marker-alt', Performer::class),
+			MenuItem::linkToCrud('Role', 'fas fa-map-marker-alt', Role::class),
 		];
     }
 }

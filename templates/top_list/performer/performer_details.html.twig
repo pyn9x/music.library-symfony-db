@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <img class="card-img-left rounded float-left" style="height: 200px; width: 250px; display: block; margin-left: auto; margin-right: auto" src="/uploads/cover/{{ performer.cover }}" alt="{{ performer.cover }}">
+        <div class="card" style="height: 200px;">
+            <div class="card-body">
+                <h5 class="card-title"><b>{{ performer.name}}, {{ performer.surname}}</b></h5>
+                <b>Дата рождения: </b> {{ performer.birthday | date('d-m-Y')}}
+            </div>
+        </div>
+        <div class="container-fluid d-flex h-100 justify-content-center align-items-center p-0" style="display: flex; flex-wrap: wrap;">
+            {% for group in performer.group %}
+                <div class="card" style="width: 18rem;">
+                    <img style="height: 250px; width: 250px; display: block; margin-left: auto; margin-right: auto" src="/uploads/cover/{{ group.cover }}" alt="{{ group.cover }}">
+                    <div class="card-body">
+                        <a href="{{ path('groups_details', {id: group.id}) }}" class="card-title">{{ group.name }}</a> <br>
+                        <b>Жанры: </b>
+                        {% for genre in group.genre %}
+                            {{ genre.name }};
+                        {% endfor %}
+                        <div class="card-text text-truncate"><b>Дата создания:</b> {{ group.dateofcreation|date('d-m-Y') }}</div>
+                    </div>
+                </div>
+            {% endfor %} <br>
+        </div>
+    </div>
+{% endblock %}
