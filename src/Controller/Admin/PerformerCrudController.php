@@ -25,7 +25,6 @@ class PerformerCrudController extends AbstractCrudController
 		yield TextField::new('name' , 'Имя');
 		yield AssociationField::new('country' , 'Страна');
 		yield DateField::new('birthday', 'День рождения');
-		yield DateField::new('$deathday', 'День смерти');
 		yield ImageField::new('cover', 'Фото')
 						->setBasePath('uploads/cover')
 						->setUploadDir('public/uploads/cover')
