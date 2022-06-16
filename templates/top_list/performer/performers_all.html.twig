@@ -8,8 +8,8 @@
                 <div class="card-body">
                     <a href="{{ path('performer_details', {id: performer.id}) }}" class="card-title">{{ performer.name }}, {{ performer.surname}}</a> <br>
                     <b>Жанры: </b>
-                    {% for group in performer.group %}
-                        {{ group.name }}
+                    {% for role in performer.role %}
+                        {{ role.name }}
                     {% endfor %}
                     <div class="card-text text-truncate"><b>Дата создания:</b> {{ performer.birthday | date('d-m-Y') }}</div>
                 </div>

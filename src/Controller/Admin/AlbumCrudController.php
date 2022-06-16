@@ -20,7 +20,6 @@ class AlbumCrudController extends AbstractCrudController
 	public function configureFields(string $pageName): iterable
 	{
 		yield IdField::new('id')->hideOnDetail()->hideOnForm();
-		yield AssociationField::new('group', 'Группа')->setDisabled();
 		yield TextField::new('name', 'Название альбома');
 		yield TextField::new('info', 'Информация об альбоме');
 		yield AssociationField::new('genre', 'Жанр');
