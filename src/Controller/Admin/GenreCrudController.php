@@ -17,6 +17,6 @@ class GenreCrudController extends AbstractCrudController
 	public function configureFields(string $pageName): iterable
 	{
 		yield IdField::new('id')->hideOnDetail()->hideOnForm();
-		yield TextField::new('name');
+		yield TextField::new('name', 'Жанр');
 	}
 }

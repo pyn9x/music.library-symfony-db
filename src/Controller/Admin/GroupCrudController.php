@@ -21,15 +21,16 @@ class GroupCrudController extends AbstractCrudController
 	public function configureFields(string $pageName): iterable
 	{
 		yield IdField::new('id')->hideOnDetail()->hideOnForm();
-		yield TextField::new('name');
-		yield TextField::new('info');
-		yield AssociationField::new('genre');
-		yield AssociationField::new('album');
-		yield AssociationField::new('performer');
-		yield AssociationField::new('country');
+		yield TextField::new('name', 'Название альбома');
+		yield TextField::new('info', 'Информация о группе');
+		yield AssociationField::new('genre', 'Жанр');
+		yield AssociationField::new('album', 'Альбомы группы');
+		yield AssociationField::new('performer', 'Участники группы');
+		yield AssociationField::new('country', 'Страна');
 		yield ImageField::new('cover')->setBasePath('uploads/cover')->setUploadDir('public/uploads/cover')
 						->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
 
-		yield DateField::new('date_of_creation');
+		yield DateField::new('date_of_creation', 'Дата создания');
+		yield DateField::new('breakup', 'Дата расспада');
 	}
 }

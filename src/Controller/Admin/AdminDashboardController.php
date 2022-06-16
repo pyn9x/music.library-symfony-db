@@ -37,15 +37,15 @@ class AdminDashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
 		return [
-			MenuItem::linkToRoute('Home', 'fas fa-home', 'index'),
+			MenuItem::linkToRoute('Главная Страница', 'fas fa-home', 'index'),
 			//MenuItem::linkToCrud('User', 'fas fa-map-marker-alt', User::class),
-			MenuItem::linkToCrud('Group', 'fas fa-map-marker-alt', Group::class),
-			MenuItem::linkToCrud('Album', 'fas fa-map-marker-alt', Album::class),
-			MenuItem::linkToCrud('Song', 'fas fa-map-marker-alt', Song::class),
-			MenuItem::linkToCrud('Genre', 'fas fa-map-marker-alt', Genre::class),
-			MenuItem::linkToCrud('Country', 'fas fa-map-marker-alt', Country::class),
-			MenuItem::linkToCrud('Performer', 'fas fa-map-marker-alt', Performer::class),
-			MenuItem::linkToCrud('Role', 'fas fa-map-marker-alt', Role::class),
+			MenuItem::linkToCrud('Группы', 'fas fa-users', Group::class),
+			MenuItem::linkToCrud('Альбомы', 'fas fa-compact-disc', Album::class),
+			MenuItem::linkToCrud('Песни', 'fas fa-music', Song::class),
+			MenuItem::linkToCrud('Исполнители', 'fa fa-user', Performer::class),
+			MenuItem::linkToCrud('Жанры', 'fa fa-tags', Genre::class),
+			MenuItem::linkToCrud('Страны', 'fa fa-globe-europe', Country::class),
+			MenuItem::linkToCrud('Роли', 'fa fa-guitar', Role::class),
 		];
     }
 }

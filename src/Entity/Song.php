@@ -21,12 +21,19 @@ class Song
     #[ORM\Column(type: 'string', length: 255)]
     private $duration;
 
+	#[ORM\Column(type: 'date', nullable: true)]
+                  	private $release_date;
+
     #[ORM\ManyToMany(targetEntity: Album::class, inversedBy: 'songs')]
     private $album;
+
+	#[ORM\ManyToMany(targetEntity: Performer::class, inversedBy: 'songs')]
+                private $author;
 
     public function __construct()
     {
         $this->album = new ArrayCollection();
+        $this->author = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -83,7 +90,43 @@ class Song
     }
 
 	public function __toString()
-	{
-		return $this->name;
-	}
+                  	{
+                  		return $this->name;
+                  	}
+
+    public function getReleaseDate(): ?\DateTimeInterface
+    {
+        return $this->release_date;
+    }
+
+    public function setReleaseDate(?\DateTimeInterface $release_date): self
+    {
+        $this->release_date = $release_date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Performer>
+     */
+    public function getAuthor(): Collection
+    {
+        return $this->author;
+    }
+
+    public function addAuthor(Performer $author): self
+    {
+        if (!$this->author->contains($author)) {
+            $this->author[] = $author;
+        }
+
+        return $this;
+    }
+
+    public function removeAuthor(Performer $author): self
+    {
+        $this->author->removeElement($author);
+
+        return $this;
+    }
 }

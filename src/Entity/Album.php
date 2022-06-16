@@ -84,6 +84,20 @@ class Album
 		return $this;
 	}
 
+	public function getCoverUrl(): ?string
+	{
+		if (!$this->cover)
+		{
+			return null;
+		}
+		if (str_contains($this->cover, '/'))
+		{
+			return $this->cover;
+		}
+
+		return sprintf('/uploads/cover/%s', $this->cover);
+	}
+
 	/**
 	 * @return Collection<int, Group>
 	 */
@@ -111,20 +125,6 @@ class Album
 		}
 
 		return $this;
-	}
-
-	public function getCoverUrl(): ?string
-	{
-		if (!$this->cover)
-		{
-			return null;
-		}
-		if (str_contains($this->cover, '/'))
-		{
-			return $this->cover;
-		}
-
-		return sprintf('/uploads/cover/%s', $this->cover);
 	}
 
 	public function __toString()

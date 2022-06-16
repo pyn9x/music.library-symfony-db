@@ -20,14 +20,14 @@ class AlbumCrudController extends AbstractCrudController
 	public function configureFields(string $pageName): iterable
 	{
 		yield IdField::new('id')->hideOnDetail()->hideOnForm();
-		yield AssociationField::new('group')->setDisabled();
-		yield TextField::new('name');
-		yield TextField::new('info');
-		yield AssociationField::new('genre');
-		yield ImageField::new('cover')
+		yield AssociationField::new('group', 'Группа')->setDisabled();
+		yield TextField::new('name', 'Название альбома');
+		yield TextField::new('info', 'Информация об альбоме');
+		yield AssociationField::new('genre', 'Жанр');
+		yield ImageField::new('cover', 'Обложка')
 						->setBasePath('uploads/cover')
 						->setUploadDir('public/uploads/cover')
 						->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
-		yield DateField::new('release_date');
+		yield DateField::new('release_date', 'Дата релиза');
 	}
 }

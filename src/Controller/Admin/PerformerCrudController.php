@@ -21,14 +21,15 @@ class PerformerCrudController extends AbstractCrudController
 	public function configureFields(string $pageName): iterable
 	{
 		yield IdField::new('id')->hideOnDetail()->hideOnForm();
-		yield TextField::new('surname');
-		yield TextField::new('name');
-		yield AssociationField::new('country');
-		yield DateField::new('birthday');
-		yield ImageField::new('cover')
+		yield TextField::new('surname' , 'Фамилия');
+		yield TextField::new('name' , 'Имя');
+		yield AssociationField::new('country' , 'Страна');
+		yield DateField::new('birthday', 'День рождения');
+		yield DateField::new('$deathday', 'День смерти');
+		yield ImageField::new('cover', 'Фото')
 						->setBasePath('uploads/cover')
 						->setUploadDir('public/uploads/cover')
 						->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
-		yield AssociationField::new('role');
+		yield AssociationField::new('role', 'Роль');
 	}
 }
